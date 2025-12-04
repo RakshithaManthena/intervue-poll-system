@@ -1,0 +1,434 @@
+:root {
+  --primary: #7765da;
+  --primary-dark: #5767dd;
+  --primary-strong: #4f00ce;
+  --bg-soft: #f2f2f2;
+  --text-main: #373737;
+  --text-muted: #6e6e6e;
+}
+
+/* basic reset */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter",
+    "Segoe UI", sans-serif;
+  color: var(--text-main);
+  background: #ffffff;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* shared layout */
+
+.lp-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.lp-container {
+  width: min(960px, 100% - 80px);
+}
+
+/* top label pill */
+
+.lp-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--primary-strong);
+  color: #ffffff;
+}
+
+/* headings + text */
+
+.lp-title {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.lp-subtitle {
+  margin: 0 auto 32px;
+  max-width: 520px;
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* generic card */
+
+.lp-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 26px 26px 22px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* landing role cards */
+
+.lp-role-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 34px;
+}
+
+.lp-role-card {
+  flex: 0 0 260px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.lp-role-card h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.lp-role-card p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.lp-role-card--active {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary), 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+/* primary button */
+
+.lp-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 32px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+
+.lp-primary-btn:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 8px 20px rgba(87, 103, 221, 0.35);
+  transform: translateY(-1px);
+}
+
+.lp-primary-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* form controls */
+
+.lp-field-label {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.lp-input,
+.lp-textarea,
+.lp-select {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  background: #ffffff;
+}
+
+.lp-textarea {
+  resize: vertical;
+  min-height: 110px;
+  background: #f7f7f7;
+}
+
+.lp-input:focus,
+.lp-textarea:focus,
+.lp-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.lp-input::placeholder,
+.lp-textarea::placeholder {
+  color: #c3c3c3;
+}
+
+/* teacher layout */
+
+.lp-two-col {
+  display: grid;
+  grid-template-columns: 1.8fr 1.2fr;
+  gap: 32px;
+}
+
+@media (max-width: 800px) {
+  .lp-two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* options table */
+
+.lp-options-header {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.lp-option-row {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
+.lp-option-correct {
+  font-size: 12px;
+  color: var(--text-main);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.lp-radio-group label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lp-add-option-btn {
+  margin-top: 8px;
+  font-size: 12px;
+  background: transparent;
+  color: var(--primary);
+  border-radius: 999px;
+  padding: 6px 14px;
+  border: 1px dashed var(--primary);
+  cursor: pointer;
+}
+
+/* small text */
+
+.lp-muted {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* right panel stats pill */
+
+.lp-stat-pill {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* student options */
+
+.lp-student-options {
+  margin-top: 12px;
+}
+
+.lp-student-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  padding: 7px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.lp-student-options input[type="radio"] {
+  accent-color: var(--primary);
+}
+
+.lp-student-options label:hover {
+  border-color: var(--bg-soft);
+}
+
+/* results list */
+
+.lp-results-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+.lp-results-list li {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+/* results bar */
+
+.lp-bar-wrapper {
+  background: #ececec;
+  border-radius: 999px;
+  height: 18px;
+  overflow: hidden;
+  position: relative;
+}
+
+.lp-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-size: 11px;
+  color: #ffffff;
+}
+
+/* history overlay */
+
+.lp-history-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+}
+
+.lp-history-modal {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px 26px;
+  width: min(700px, 100% - 40px);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* chat widget */
+
+.lp-chat-toggle {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 40;
+}
+
+.lp-chat-panel {
+  position: fixed;
+  right: 24px;
+  bottom: 80px;
+  width: 280px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.lp-chat-header {
+  padding: 10px 14px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.lp-chat-tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.lp-chat-tab {
+  flex: 1;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.lp-chat-tab--active {
+  border-bottom: 2px solid var(--primary);
+  font-weight: 500;
+}
+
+.lp-chat-body {
+  padding: 8px 10px;
+  font-size: 12px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.lp-chat-message {
+  margin-bottom: 6px;
+}
+
+.lp-chat-footer {
+  border-top: 1px solid #eee;
+  padding: 6px 8px;
+  display: flex;
+  gap: 6px;
+}
+
+.lp-chat-input {
+  flex: 1;
+  border-radius: 999px;
+  border: 1px solid #e2e2e2;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+/* kicked screen */
+
+.lp-kicked-title {
+  margin-top: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.lp-kicked-text {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: center;
+}
