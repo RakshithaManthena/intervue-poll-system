@@ -1,5 +1,3 @@
 import { io } from "socket.io-client";
 
-// when you deploy backend, replace this with your Render URL
-export const socket = io("https://YOUR-RENDER-URL"); 
-
+export const socket = io("https://intervue-poll-system-l58d.onrender.com");
